@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ServerAI | Intelligent Web Hosting</title>
+</head>
+
+<!-- START of CSS Inline style-->
+<style>
+    /* Custom Font */
+    @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
+
+    :root {
+        /* Custom font colors */
+        --primFontColor: #333333;
+
+        /* Custom colors */
+        --primColor: #226ce0;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: var(--primFontColor);
+    }
+
+    /* utilities */
+    body {
+        font-family: 'Sen', sans-serif;
+    }
+
+    button {
+        font-family: 'Sen', sans-serif;
+    }
+
+    .login-btn {
+        background-color: var(--primColor);
+        color: #ffffff;
+        border: none;
+        padding: 8px 22px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .login-btn:hover {
+        cursor: pointer;
+        opacity: .7;
+        transition: 0.3s;
+    }
+
+    .try-btn {
+        background-color: var(--primColor);
+        color: #ffffff;
+        border: none;
+        padding: 8px 22px;
+        font-size: 24px;
+        font-weight: 600;
+        border-radius: 8px;
+        margin-top: 28px;
+    }
+
+    .try-btn:hover {
+        cursor: pointer;
+        opacity: .7;
+        transition: 0.3s;
+    }
+
+    i {
+        color: var(--primColor);
+    }
+
+
+    /* Navbar */
+    nav {
+        overflow: hidden;
+        position: fixed;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #ffffff;
+        width: 100%;
+        height: 50;
+        padding: 5px 0 5px 0;
+        box-shadow: 1px 1px 6px black;
+    }
+
+    .logo h1 {
+        font-size: 36px;
+        font-weight: 900;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .menu-list {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-list ul {
+        display: flex;
+    }
+
+    .menu-list a {
+        padding-right: 30px;
+        text-decoration: none;
+    }
+
+    .menu-list a:hover {
+        color: var(--primColor);
+        transition: 0.3s;
+        opacity: .7;
+    }
+
+    /* Showcase-1 */
+    .showcase-1 {
+        display: flex;
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+        justify-content: space-evenly;
+        padding-top: 60px;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .left-content h1 {
+        font-size: 32px;
+    }
+
+    /* Showcase-2 */
+    .showcase-2 {
+        width: 100%;
+        margin: auto;
+        padding-top: 20px;
+        text-align: center;
+        padding-bottom: 50px;
+        background-color: var(--primColor);
+    }
+
+    .showcase-2 h1 {
+        color: white;
+        padding: 10px 0 30px 0;
+    }
+
+    .card-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        height: 220px;
+        width: 160px;
+        border-radius: 8px;
+        background-color: white;
+        margin: 0 80px 0 80px;
+        padding: 20px 10px 20px 10px;
+    }
+
+    .card-container img {
+        padding-bottom: 16px;
+    }
+
+    /* Showcase-3 */
+    .showcase-3 {
+        width: 100%;
+        margin: auto;
+        padding-top: 20px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .pricing-col {
+        margin: 50px 0 30px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .col-card {
+        width: 320px;
+        height: 360px;
+        border: 1px solid var(--primFontColor);
+        margin: 0 14px 0 14px;
+        padding: 10px 12px 10px 12px;
+        border-radius: 10px;
+        box-shadow: .5px 1px 6px var(--primFontColor);
+    }
+
+    .col-card li {
+        text-align: start;
+        padding-top: 20px;
+    }
+
+    /* Table showcase */
+
+    .table-showcase {
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+        padding-top: 20px;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .table-showcase h1 {
+        padding-bottom: 20px;
+    }
+
+    table,
+    td,
+    th {
+        border: 1px solid #ddd;
+        padding: 30px;
+        text-align: center;
+    }
+
+    th {
+        color: var(--primColor);
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .td-i i {
+        align-items: center;
+        display: block;
+        padding-bottom: 4px;
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--primColor);
+    }
+
+    footer h1 {
+        color: white;
+        padding: 12px 0 12px 0;
+    }
+
+    footer p {
+        padding: 8px 0 8px 0;
+        color: white;
+    }
+
+    .footer-container {
+        max-width: 1100px;
+        margin: auto;
+        text-align: left;
+        padding: 0 30px 0 30px;
+    }
+
+    .table-showcase {
+        overflow-x: auto;
+    }
+
+    /* media queries for responsive app */
+    @media(max-width: 700px) {
+
+        /* Nav */
+        .main-nav {
+            display: grid;
+            text-align: center;
+        }
+
+        button.login-btn {
+            display: none;
+        }
+
+        .menu-list li {
+            padding: 15px 0 15px 0;
+        }
+
+        /* Showcase-1 */
+        .showcase-1 {
+            display: block;
+            text-align: center;
+        }
+
+        .left-content {
+            margin: 50px 0 50px 0;
+            padding: 30px 0 30px 0;
+        }
+
+        /* Showcase-2 */
+        .showcase-2 {
+            display: block;
+            text-align: center;
+        }
+
+        .showcase-2 h1 {
+            margin: 0 15px 0 15px;
+        }
+
+        .card-container {
+            display: grid;
+        }
+
+        .card {
+            margin: 30px 0 30px 0;
+        }
+
+        /* Showcase-3 */
+        .pricing-col {
+            display: grid;
+        }
+
+        .col-card {
+            margin: 30px 0 30px 0;
+        }
+
+        /* Footer */
+        .footer-container h1 {
+            text-align: center;
+        }
+
+        .footer-container p {
+            text-align: left;
+            padding: 0 20px 20px 20px;
+        }
+    }
+</style>
+<!-- END of CSS Inline style-->
+
+<body>
+    <nav class="main-nav">
+        <div class="logo">
+            <h1>ServerAI</h1>
+        </div>
+        <ul class="menu-list">
+            <li><a href="">Hosting</a></li>
+            <li><a href="">Domain</a></li>
+            <li><a href="">Email</a></li>
+            <button class="login-btn">Login</button>
+        </ul>
+    </nav>
+
+    <section class="showcase-1">
+        <div class="left-content">
+            <h1>Intelligent Web Hosting</h1>
+            <h3>Host your website with us.</h3>
+            <button class="try-btn">Try now!</button>
+        </div>
+        <div class="right-content">
+            <img src="img/showcase.png" alt="showcase">
+            <h1>Fast. Secure. Intelligent.</h1>
+        </div>
+    </section>
+
+    <section class="showcase-2">
+        <h1>Join 1,196,268 website owners who are building their businesses online.</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="img/global.png" alt="global">
+                <h3>Global Server</h3>
+            </div>
+            <div class="card">
+                <img src="img/security.png" alt="security">
+                <h3>Security</h3>
+            </div>
+            <div class="card">
+                <img src="img/firewall.png" alt="firewall">
+                <h3>Firewall</h3>
+            </div>
+        </div>
+    </section>
+
+    <div class="showcase-3">
+        <h1>ServerAI</h1>
+        <h3>Fully managed, global cloud database on AWS, Azure, and GCP</h3>
+        <div class="pricing-col">
+            <div class="col-card">
+                <h1>Serverless</h1>
+                <p>For serverless applications with variable or infrequent traffic. Minimal configuration required.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Up to 1TB of storage</li>
+                    <li><i class="fas fa-check"></i> Resources scale seamlessly to meet your workload</li>
+                    <li><i class="fas fa-check"></i> Pay only for the operations you run</li>
+                    <li><i class="fas fa-check"></i> Always-on security and backups</li>
+                </ul>
+            </div>
+
+            <div class="col-card">
+                <h1>Dedicated</h1>
+                <p>For production applications with sophisticated workload requirements. Advanced configuration
+                    controls.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> 10GB to 4TB of storage</li>
+                    <li><i class="fas fa-check"></i> 2GB to 768GB RAM</li>
+                    <li><i class="fas fa-check"></i> Network isolation and fine-grained access controls</li>
+                    <li><i class="fas fa-check"></i> Multi-region and multi-cloud options available</li>
+                </ul>
+            </div>
+
+            <div class="col-card">
+                <h1>Shared</h1>
+                <p>For learning and exploring MongoDB in a cloud environment. Basic configuration options.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> 512MB to 5GB of storage</li>
+                    <li><i class="fas fa-check"></i> Shared RAM</li>
+                    <li><i class="fas fa-check"></i> Upgrade to dedicated clusters for full functionality</li>
+                    <li><i class="fas fa-check"></i> No credit card required to start</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-showcase">
+        <h1>Plan features.</h1>
+        <table>
+            <tr>
+                <th></th>
+                <th>Serverless</th>
+                <th>Dedicated</th>
+                <th>Shared</th>
+            </tr>
+            <tr>
+                <td class="td-i"><i class="fa-solid fa-database"></i>Storage</td>
+                <td>Up to 1TB</td>
+                <td>Up to 4 TB per shard</td>
+                <td>Up to 5 GB</td>
+            </tr>
+            <tr>
+                <td class="td-i"><i class="fa-solid fa-memory"></i>RAM</td>
+                <td>RAM scales seamlessly to meet your workload</td>
+                <td>Up to 768 GB per shard</td>
+                <td>Shared</td>
+            </tr>
+            <tr>
+                <td class="td-i"><i class="fa-solid fa-microchip"></i>vCPU</td>
+                <td>CPU scales seamlessly to meet your workload</td>
+                <td>Up to 96 vCPUs per shard</td>
+                <td>Shared</td>
+            </tr>
+            <tr>
+                <td class="td-i"><i class="fa-solid fa-hard-drive"></i>Backups</td>
+                <td>Two daily snapshots with extended retention available</td>
+                <td>Configurable snapshot and retention policies
+                    On-demand snapshots
+                    Point-in-time recovery.</td>
+                <td>Daily snapshots for 2GB and 5GB deployments, not available for free clusters</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <h1>ServerAI</h1>
+            <p>We are a web hosting provider on a mission to bring success to everyone who goes online.
+                We do it by constantly improving server technology, providing professional support, and making the web
+                hosting experience seamless.</p>
+            <p>© 2004-2022 serverai.io - Premium AI Web Hosting, Cloud, VPS & Domain Registration Services.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-btn').addEventListener('click', () => document.querySelector('.main-nav').classList.toggle('show'));
+    </script>
+</body>
+
+</html>
